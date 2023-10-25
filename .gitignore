@@ -1,0 +1,13 @@
+.idea/
+.ipynb_checkpoints/
+__pycache__/
+.png
+.pdf
+.DS_Store
+.python-version
+docs/source/*.rst
+venv
+.vscode
+.env
+data_drivers
+.metaflow
