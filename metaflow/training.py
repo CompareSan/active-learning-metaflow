@@ -18,14 +18,14 @@ def fit(train_loader, device):
     model = CNN(num_classes=2, n_channel=1)
     model.to(device)
 
-    num_epochs = 10
-    lr = 3e-4
+    NUM_EPOCHS = 10
+    LEARNING_RATE = 3e-4
     criterion = nn.CrossEntropyLoss()
-    optimizer = torch.optim.Adam(model.parameters(), lr=lr)
+    optimizer = torch.optim.Adam(model.parameters(), lr=LEARNING_RATE)
 
     # training loop
     losses_per_epoch = []
-    for epoch in range(num_epochs):
+    for epoch in range(NUM_EPOCHS):
         losses_per_batch = []
         for i, (sample, labels) in enumerate(train_loader):
             sample = sample.to(device)
