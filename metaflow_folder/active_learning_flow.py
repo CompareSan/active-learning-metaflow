@@ -1,14 +1,13 @@
 from load_unlabeled_pool_drivers import get_unlabeled_pool_drivers
+from metaflow import (
+    FlowSpec,
+    step,
+)
 from sampling_method import MarginMethod
 from sampling_strategy import UncertaintySampling
 from testing import evaluate
 from training import fit
 from utils import to_float
-
-from metaflow import (
-    FlowSpec,
-    step,
-)
 
 
 class ActiveLearningFlow(FlowSpec):
