@@ -1,6 +1,10 @@
 import torch
-from torch import nn
-from sklearn.metrics import precision_score, recall_score, f1_score
+from sklearn.metrics import (
+    f1_score,
+    precision_score,
+    recall_score,
+)
+
 
 def evaluate(model, test_loader, device):
     """

@@ -1,7 +1,8 @@
-from model_cnn_drivers import CNN
-import torch
-from torch import nn
 import numpy as np
+import torch
+from model_cnn_drivers import CNN
+from torch import nn
+
 
 def fit(train_loader, device):
     """
@@ -31,19 +32,18 @@ def fit(train_loader, device):
             sample = sample.to(device)
             labels = labels.to(device)
 
-            #forward
+            # forward
             output = model(sample)
             loss = criterion(output, labels)
 
-            #backward
+            # backward
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
 
             losses_per_batch.append(loss.item())
 
-
         losses_per_epoch.append(np.mean(losses_per_batch))
-        print(f'Epoch {epoch+1}, Train Loss: {losses_per_epoch[-1]}')
+        print(f"Epoch {epoch+1}, Train Loss: {losses_per_epoch[-1]}")
 
     return model

@@ -1,5 +1,6 @@
-from torch import nn
 import torch.nn.functional as F
+from torch import nn
+
 
 class CNN(nn.Module):
     """
@@ -27,7 +28,9 @@ class CNN(nn.Module):
         self.pool = nn.MaxPool2d(2, 2)
         self.conv2 = nn.Conv2d(32, 16, 4)
         self.fc1 = nn.Linear(16 * 4 * 6, 16)
-        self.fc2 = nn.Linear(16, num_classes)  # Output has 2 classes for binary classification
+        self.fc2 = nn.Linear(
+            16, num_classes
+        )  # Output has 2 classes for binary classification
 
     def forward(self, x):
         """
@@ -45,4 +48,3 @@ class CNN(nn.Module):
         x = F.relu(self.fc1(x))
         x = self.fc2(x)
         return x
-

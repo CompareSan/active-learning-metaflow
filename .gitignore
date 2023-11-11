@@ -11,3 +11,4 @@ venv
 .env
 data_drivers
 .metaflow
+.mypy_cache

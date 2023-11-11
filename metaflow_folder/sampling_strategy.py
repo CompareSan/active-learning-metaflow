@@ -1,8 +1,10 @@
-import torch.nn.functional as F
-import torch
-import numpy as np
 import abc
 from abc import ABC
+
+import numpy as np
+import torch
+import torch.nn.functional as F
+
 
 class SamplingStrategy(ABC):
     """
@@ -12,13 +14,11 @@ class SamplingStrategy(ABC):
     def __init__(self, method, device):
         self.method = method
         self.device = device
-        
 
     @abc.abstractmethod
     def get_samples(self, *args, **kwargs):
-        raise NotImplementedError(
-            "Implement the `get_samples`"
-        )
+        raise NotImplementedError("Implement the `get_samples`")
+
 
 class UncertaintySampling(SamplingStrategy):
     def __init__(self, method, device):
@@ -41,9 +41,10 @@ class UncertaintySampling(SamplingStrategy):
             indices (np.ndarray): An array of integers representing the indices of the top samples.
             scores (np.ndarray): An array of floats representing the uncertainty scores of the top samples.
         """
-        if self.method == 'random':
-            indices = np.random.choice(range(unlabeled_data.dataset.data.shape[0]),
-                                        size=number, replace=False)
+        if self.method == "random":
+            indices = np.random.choice(
+                range(unlabeled_data.dataset.data.shape[0]), size=number, replace=False
+            )
             scores = []
         else:
             samples = []
@@ -59,5 +60,5 @@ class UncertaintySampling(SamplingStrategy):
             samples_to_be_returned = samples[:number:]
             indices = np.array(samples_to_be_returned)[:, 0]
             scores = np.array(samples_to_be_returned)[:, 1]
-        
+
         return indices.astype(int), scores
