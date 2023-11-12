@@ -12,3 +12,6 @@ venv
 data_drivers
 .metaflow
 .mypy_cache
+build
+dist
+*.egg-info

@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "active-learning-metaflow"
+authors = [
+    {name = "Compare San", email = "filippo.buonco95@gmail.com"},
+]
+description = "Metaflow Active Learning Flow"
+readme = "README.md"
+requires-python = ">=3.11"
+keywords = ["one", "two"]
+license = {text = "BSD-3-Clause"}
+classifiers = [
+    "Framework :: Metaflow",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    'torch',
+    'metaflow',
+    'numpy',
+    'opencv-python',
+    'scikit-learn'
+    ]
+#dynamic = ["version"]
+version = "0.0.0"
+
+[tool.setuptools]
+package-dir = {"" = "metaflow_folder"}
