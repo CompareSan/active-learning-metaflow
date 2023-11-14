@@ -28,10 +28,10 @@ jobs:
     - name: Analysing the code with pre-commit
       run: |
         make pre-commit
-    - name: build
+    - name: Build Python package
       run: |
         make build
-    - name: publish_test
+    - name: Publish to Test PyPI
       run: |
         make publish_test
       env:
