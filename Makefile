@@ -1,4 +1,3 @@
-include .env
 .PHONY: test test_coverage
 all: test pre-commit clean build publish_test publish_prod
 
