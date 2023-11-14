@@ -12,10 +12,8 @@ readme = "README.md"
 requires-python = ">=3.11"
 keywords = ["one", "two"]
 license = {text = "BSD-3-Clause"}
-classifiers = [
-    "Framework :: Metaflow",
-    "Programming Language :: Python :: 3",
-]
+
+
 dependencies = [
     'torch',
     'metaflow',
@@ -25,6 +23,10 @@ dependencies = [
     ]
 #dynamic = ["version"]
 version = "0.0.0"
+
+[project.optional-dependencies]
+release = ["build", "twine"]
+dev = ["active-learning-metaflow[release]"]
 
 [tool.setuptools]
 package-dir = {"" = "metaflow_folder"}

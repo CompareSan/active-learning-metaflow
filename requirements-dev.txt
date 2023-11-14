@@ -1,5 +1,5 @@
 flake8==4.0.1
-mypy==0.930
+mypy==1.7.0
 black==22.3.0
 isort==5.10.1
 coverage==6.2

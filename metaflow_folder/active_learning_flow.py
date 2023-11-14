@@ -1,13 +1,14 @@
-from load_unlabeled_pool_drivers import get_unlabeled_pool_drivers
 from metaflow import (
     FlowSpec,
     step,
 )
-from sampling_method import MarginMethod
-from sampling_strategy import UncertaintySampling
-from testing import evaluate
-from training import fit
-from utils import to_float
+
+from metaflow_folder.load_unlabeled_pool_drivers import get_unlabeled_pool_drivers
+from metaflow_folder.sampling_method import MarginMethod
+from metaflow_folder.sampling_strategy import UncertaintySampling
+from metaflow_folder.testing import evaluate
+from metaflow_folder.training import fit
+from metaflow_folder.utils import to_float
 
 
 class ActiveLearningFlow(FlowSpec):
@@ -27,8 +28,9 @@ class ActiveLearningFlow(FlowSpec):
         """
         import numpy as np
         import torchvision.transforms as transforms
-        from custom_dataset import CustomDataset
         from torch.utils.data import DataLoader
+
+        from metaflow_folder.custom_dataset import CustomDataset
 
         self.X_pool, self.y_pool = get_unlabeled_pool_drivers()
         self.X_pool, self.y_pool = np.array(self.X_pool) / 255, np.array(self.y_pool)
