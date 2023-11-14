@@ -28,9 +28,6 @@ jobs:
     - name: Analysing the code with pre-commit
       run: |
         make pre-commit
-    - name: clean
-      run: |
-        make clean
     - name: build
       run: |
         make build
